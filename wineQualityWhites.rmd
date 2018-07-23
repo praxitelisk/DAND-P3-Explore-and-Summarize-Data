@@ -98,7 +98,7 @@ getmode <- function(v) {
 
 ```{r echo=FALSE, warning=FALSE, Univariate_Plots4}
 p1 <- ggplot(wine, aes_string(x = 'volatile.acidity')) +
-    geom_histogram(bins=35, col="red", aes(fill=..count..)) + 
+    geom_histogram(bins=35, col="red", fill="#4a85e8") + 
   xlab("Volatile Acidity (g/L)")+
   labs(title="Volatile acidity distribution") +
   geom_vline(xintercept=mean(wine$volatile.acidity), color="green", size=1) +
@@ -108,9 +108,9 @@ p1 <- ggplot(wine, aes_string(x = 'volatile.acidity')) +
   geom_vline(xintercept=quantile(wine$volatile.acidity, .75), color="black", size=1, linetype=2) +
   theme_dark()
   
-p2 <- ggplot(wine, aes(y = volatile.acidity, x='volatile.acidity')) +
+p2 <- ggplot(wine, aes(y = volatile.acidity, x=1)) +
     geom_boxplot(color = 'blue', notch=T, fill="yellow", alpha=0.4) +
-  geom_jitter(aes(x = 'volatile.acidity', y = volatile.acidity), alpha = 0.05) +
+  geom_jitter(aes(x = 1, y = volatile.acidity), alpha = 0.05) +
   labs(y = "Volatile Acidity (g/L)", x = '',
           title = "Volatile acidity distribution") +
   coord_flip()  +
@@ -136,7 +136,7 @@ The Volatile acidity is right skewed, that explains the skewness values of 1.57 
 ## citric.acid Histogram, Boxplot and Summary univariate statistics
 ```{r echo=FALSE, warning=FALSE, Univariate_Plots5}
 p1 <- ggplot(wine, aes(x = citric.acid)) +
-    geom_histogram(bins=35, col="red", aes(fill=..count..)) + xlab("Citric Acid (g/dm^3)") +
+    geom_histogram(bins=35, col="red", fill="#4a85e8") + xlab("Citric Acid (g/dm^3)") +
     labs(title="Citric Acid distribution") +
   geom_vline(xintercept=mean(wine$citric.acid), color="green", size=1) +
   geom_vline(xintercept=median(wine$citric.acid), color="orange", size=1) +
@@ -174,7 +174,7 @@ The Citric acid is normally distributed to right skewed shape, its skewness valu
 ```{r echo=FALSE, warning=FALSE, Univariate_Plots6}
 
 p1 <- ggplot(wine, aes_string(x = 'residual.sugar')) +
-    geom_histogram(bins=25, binwidth = 1.5, col="red", aes(fill=..count..)) + xlab("Residual Sugar (g/dm^3)") +
+    geom_histogram(bins=25, binwidth = 1.5, col="red", fill="#4a85e8") + xlab("Residual Sugar (g/dm^3)") +
     labs(title="Residual Sugar distribution") +
   geom_vline(xintercept=mean(wine$residual.sugar), color="green", size=1) +
   geom_vline(xintercept=median(wine$residual.sugar), color="orange", size=1) +
@@ -214,7 +214,7 @@ wine$residual.sugar.log = log(wine$residual.sugar)
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, Univariate_Plots2_log}
 p1 <- ggplot(data = wine, aes(x=wine$residual.sugar.log)) + 
-  geom_histogram(binwidth = 0.065, col="red", aes(fill=..count..)) + labs(title="Log transformed Residual Sugar distribution") +
+  geom_histogram(binwidth = 0.065, col="red", fill="#4a85e8") + labs(title="Log transformed Residual Sugar distribution") +
   xlab("Log transformed Residual Sugar (g/dm^3)") +
   geom_vline(xintercept=mean(wine$residual.sugar.log), color="green", size=1) +
   geom_vline(xintercept=median(wine$residual.sugar.log), color="orange", size=1) +
@@ -253,7 +253,7 @@ The above histogram shows that a log transform of residual sugar results in an a
 #plot.hist('chlorides', wine, 0.001,'Chlorides (g/dm^3)',"Chlorides distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'chlorides')) +
-    geom_histogram(bins=33, binwidth = 0.008, col="red", aes(fill=..count..)) + xlab("Chlorides (g/dm^3)")+
+    geom_histogram(bins=33, binwidth = 0.008, col="red", fill="#4a85e8") + xlab("Chlorides (g/dm^3)")+
     labs(title="Chlorides distribution") +
   geom_vline(xintercept=mean(wine$chlorides), color="green", size=1) +
   geom_vline(xintercept=median(wine$chlorides), color="orange", size=1) +
@@ -294,7 +294,7 @@ wine$chlorides.log = log(wine$chlorides)
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, Univariate_Plots3_log}
 p1 <- ggplot(data = wine, aes(x = wine$chlorides.log)) + 
-  geom_histogram(binwidth = 0.06, col="red", aes(fill=..count..)) + 
+  geom_histogram(binwidth = 0.06, col="red", fill="#4a85e8") + 
   labs(title="Log transformed Residual Chlorides distribution") +
   xlab("Log transformed Residual Chlorides (g/dm^3)") +
   geom_vline(xintercept=mean(wine$chlorides.log), color="green", size=1) +
@@ -334,7 +334,7 @@ Now the log transformation has resulted into an almost normal distribution with 
 #plot.hist('free.sulfur.dioxide', wine, 1,'Free Sulfur Dioxide (mg/dm^3)',"Free sulfur distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'free.sulfur.dioxide')) +
-    geom_histogram(bins=32, binwidth = 8, col="red", aes(fill=..count..)) + xlab("Free Sulfur Dioxide (mg/dm^3)")+
+    geom_histogram(bins=32, binwidth = 8, col="red", fill="#4a85e8") + xlab("Free Sulfur Dioxide (mg/dm^3)")+
     labs(title="Free sulfur distribution") +
   geom_vline(xintercept=mean(wine$free.sulfur.dioxide), color="green", size=1) +
   geom_vline(xintercept=median(wine$free.sulfur.dioxide), color="orange", size=1) +
@@ -374,7 +374,7 @@ Free sulfur dioxide is right skewed and almost normally distributed, it has skew
 #plot.hist('total.sulfur.dioxide', wine, 1,'Total Sulfur Dioxide (mg/dm^3)',"Total Sulfur distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'total.sulfur.dioxide')) +
-    geom_histogram(bins = 35,col="red", aes(fill=..count..)) + xlab("Total Sulfur Dioxide (mg/dm^3)")+
+    geom_histogram(bins = 35,col="red", fill="#4a85e8") + xlab("Total Sulfur Dioxide (mg/dm^3)")+
     labs(title="Total Sulfur distribution") +
   geom_vline(xintercept=mean(wine$total.sulfur.dioxide), color="green", size=1) +
   geom_vline(xintercept=median(wine$total.sulfur.dioxide), color="orange", size=1) +
@@ -414,7 +414,7 @@ As for the free sulfur dioxide, its ditribution is almost normal with signs of r
 #plot.hist('density', wine, 0.0005,'Density (g/cm^3)',"Density distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'density')) +
-    geom_histogram(bins=32, col="red", aes(fill=..count..)) + xlab("Density (g/cm^3)")+
+    geom_histogram(bins=32, col="red", fill="#4a85e8") + xlab("Density (g/cm^3)")+
     labs(title="Total Density distribution") +
   geom_vline(xintercept=mean(wine$density), color="green", size=1) +
   geom_vline(xintercept=median(wine$density), color="orange", size=1) +
@@ -454,7 +454,7 @@ Density is almost normally distributed to right skewed distribution (skewness va
 #plot.hist('pH', wine, 0.01,'pH',"pH distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'pH')) +
-    geom_histogram(col="red", aes(fill=..count..)) + xlab("pH")+
+    geom_histogram(col="red", fill="#4a85e8") + xlab("pH")+
     labs(title="pH distribution") +
   geom_vline(xintercept=mean(wine$pH), color="green", size=1) +
   geom_vline(xintercept=median(wine$pH), color="orange", size=1) +
@@ -493,7 +493,7 @@ The pH feature is almost normally distributed with a mean of 3.18, and a few out
 #plot.hist('sulphates', wine, 0.01,'Sulphates (g/dm^3)',"Sulphates distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'sulphates')) +
-    geom_histogram(binwidth = 0.017, col="red", aes(fill=..count..)) + xlab("Sulphates (g/dm^3)")+
+    geom_histogram(binwidth = 0.017, col="red", fill="#4a85e8") + xlab("Sulphates (g/dm^3)")+
     labs(title="Sulphates distribution") +
   geom_vline(xintercept=mean(wine$sulphates), color="green", size=1) +
   geom_vline(xintercept=median(wine$sulphates), color="orange", size=1) +
@@ -532,20 +532,22 @@ Sulphates is slightly right skewed, with a few outliers above the mean of 0.4898
 #plot.hist('alcohol', wine, 0.1,'Alcohol (% by Volume)',"Alcohol distribution")
 
 p1 <- ggplot(wine, aes_string(x = 'alcohol')) +
-    geom_histogram(bins= 73, col="red", aes(fill=..count..)) + xlab("Alcohol (% by Volume)")+
+    geom_histogram(bins= 73, col="red", fill="#4a85e8") + xlab("Alcohol (% by Volume)")+
     labs(title="Alcohol distribution") +
   geom_vline(xintercept=mean(wine$alcohol), color="green", size=1) +
   geom_vline(xintercept=median(wine$alcohol), color="orange", size=1) +
   geom_vline(xintercept=getmode(wine$alcohol), color="pink", size=1) +
   geom_vline(xintercept=quantile(wine$alcohol, .25), color="black", size=1, linetype=2) +
-  geom_vline(xintercept=quantile(wine$alcohol, .75), color="black", size=1, linetype=2)
+  geom_vline(xintercept=quantile(wine$alcohol, .75), color="black", size=1, linetype=2) +
+  theme_dark()
   
 p2 <- ggplot(wine, aes(y = alcohol, x='alcohol')) +
     geom_boxplot(color = 'blue', notch = T, fill = "yellow", alpha = 0.4) +
   geom_jitter(aes_string(x = 1, y = 'alcohol'), alpha = 0.05) +
   labs(y = "Alcohol (% by Volume)", x = '',
           title = "Alcohol distribution") +
-  coord_flip()
+  coord_flip() +
+  theme_dark()
   
   grid.arrange(p1, p2)
   
@@ -566,8 +568,8 @@ The amount of alcohol by volume in a white wine is a flat distribution, with a r
 
 ## White wine Quality Histogram
 ```{r echo=FALSE, warning=FALSE, Plo}
-ggplot(aes(x = as.factor(quality)), data = wine)+
-       geom_bar(col="red", aes(fill=..count..))+
+ggplot(aes(x = as.factor(quality)), data = wine) +
+       geom_bar(col="red", fill="#4a85e8") +
        xlab("Wine Quality") + ylab("Count") +
        ggtitle("Bar Plot of Wine Quality") +
   theme_dark()
@@ -689,7 +691,8 @@ ggplot(wine, aes(factor(quality), alcohol)) +
   geom_boxplot(width=.1) +
   xlab("quality (score between 0 and 10)") +
   ylab("alcohol % by volume") +
-  ggtitle('quality and alcohol Relations') + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ggtitle('quality and alcohol Relations') + scale_fill_brewer(palette = "RdYlBu") + theme_dark() +
+  theme(legend.position="none")
 ```
 
 The above violin plot cannot coclude to a main result. We can say that from quality 6 to 9, it shows that in general, better wines have higher alcohol levels.
@@ -705,7 +708,9 @@ ggplot(wine, aes(factor(quality), density)) +
   ggtitle('quality and density Relations') +
   labs(color='Quality') +
   xlab("quality (score between 0 and 10)") +
-  ylab("density (g / cm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ylab("density (g / cm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") +
+  theme_dark() +
+  theme(legend.position="none")
 ```
 
 The relationship between density and quality seems to be quite strong: higher quality wines from rating of 7 or higher appear to be lower density compared to lower quality wines (quality rating of 5 or lower), based on the large differences in the median density observed between the quality extremes.
@@ -721,8 +726,12 @@ ggplot(wine, aes(factor(quality), chlorides.log)) +
   ggtitle('quality and log transformed chlorides Relations') +
   labs(color='Quality')  +
   xlab("quality (score between 0 and 10)") +
-  ylab("chlorides log transformed (sodium chloride - g / dm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ylab("chlorides log transformed (sodium chloride - g / dm^3)") + 
+  scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + 
+  theme_dark() +
+  theme(legend.position="none")
 ```
+
 It appears that in general, higher quality wines have lower chloride levels, since the median value of chlorides drops when the white wine quality increasing.
 
 ## quality - total.sulfur.dioxide bivariate plot
@@ -736,7 +745,10 @@ ggplot(wine, aes(factor(quality), total.sulfur.dioxide)) +
   ggtitle('quality and total.sulfur.dioxide Relations') +
   labs(color='Quality')  +
   xlab("quality (score between 0 and 10)") +
-  ylab("total sulfur dioxide (mg / dm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ylab("total sulfur dioxide (mg / dm^3)") + 
+  scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + 
+  theme_dark() +
+  theme(legend.position="none")
 ```
 
 It seems that there is a pattern between white wine quality and total.sulfur.dioxide. it appears that higher level of white wine quality has lower amounts of total.sulfur.dioxide. Especially from quality levels from 6 to 9, the median of the distributions of total.sulfur.dioxide show a constant decrease. 
@@ -752,7 +764,10 @@ ggplot(wine, aes(factor(quality), fixed.acidity)) +
   ggtitle('quality and fixed.acidity Relations') +
   labs(color='Quality')  +
   xlab("quality (score between 0 and 10)") +
-  ylab("fixed acidity (tartaric acid - g / dm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ylab("fixed acidity (tartaric acid - g / dm^3)") + 
+  scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + 
+  theme_dark() +
+  theme(legend.position="none")
 ```
 
 It seems that there is a pattern between white wine quality and the different fixed.acidity distributions. it appears that higher level of white wine quality tend to have lower amounts of total.sulfur.dioxide. Especially from quality levels from 3 to 8, the median of the distributions of total.sulfur.dioxide show a constant decrease. There is an exception, the quality with value 9, its fixed.acidity distribution does not follow the notion described above. 
@@ -768,7 +783,9 @@ ggplot(wine, aes(factor(quality), volatile.acidity)) +
   ggtitle('quality and volatile.acidity Relations') +
   labs(color='Quality')  +
   xlab("quality (score between 0 and 10)") +
-  ylab("volatile acidity (acetic acid - g / dm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  ylab("volatile acidity (acetic acid - g / dm^3)") + scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + 
+  theme_dark() +
+  theme(legend.position="none")
 ```
 
 ## alcohol - density scatterplot
@@ -1083,6 +1100,7 @@ ggplot(wine, aes(x = alcohol, y = chlorides.log)) +
   ggtitle('alcohol and chlorides log transformed scatterplot based on Quality') +
   labs(color='Quality') + scale_colour_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
 ```
+
 In addition, the above scatterplot in respect of the white wine quality speaks for itself, the quality of white wine increases as long as the alcohol percent levels increases and the chlorides (log transformed) values decreases.
 
 # Multivariate Analysis
@@ -1224,8 +1242,8 @@ In order to improve the model, I may need additional data, study and feature eng
 ### Plot One
 
 ```{r echo=FALSE, warning=FALSE, Plot3}
-ggplot(aes(x = as.factor(quality)), data = wine)+
-       geom_bar(col="red", aes(fill=..count..))+
+ggplot(aes(x = as.factor(quality)), data = wine) +
+       geom_bar(col="red", fill="#4a85e8") +
        xlab("Wine Quality") + ylab("Count") +
        ggtitle("Bar Plot of Wine Quality") + theme_dark()
 ```
@@ -1262,7 +1280,9 @@ ggplot(wine, aes(factor(quality), alcohol)) +
   ylab("alcohol (% by volume)") +
   xlab("quality") +
   ggtitle('quality and alcohol Relations') +
-  scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + theme_dark()
+  scale_fill_brewer(palette = "RdYlBu", "White wine\nQuality types") + 
+  theme_dark() +
+  theme(legend.position="none")
 ```
 
 ### Description Three
