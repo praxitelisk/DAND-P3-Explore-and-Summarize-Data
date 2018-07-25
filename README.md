@@ -1,2 +1,2 @@
 # NDDA-P3-Explore-and-Summarize--Data
-Udacity DAND: Project: Explore and Summarize Data, White wine Exploratory data analysis, [dataset source](https://s3.amazonaws.com/udacity-hosted-downloads/ud651/wineQualityInfo.txt)
+Udacity DAND Project: Explore and Summarize Data, White wine Exploratory data analysis. This repo contains the code for the exploratory data analysis for the white wine dataset from the Portoguese region of Vinho Verde. More information about the features of  the dataset can be found  [here](https://s3.amazonaws.com/udacity-hosted-downloads/ud651/wineQualityInfo.txt)
